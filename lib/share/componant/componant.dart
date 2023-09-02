@@ -514,14 +514,16 @@ import '../../helpers/colors.dart';
     context,
     String? HINT,
     TextEditingController? CONTROLLER,
-    IconData? PREICON,
+    Widget? PREICON,
     IconData? SUFICON,
+    double WIDTH=double.infinity,
+  required  Color COLOR,
     bool pass = false,
     Function()? suffixTab,
     double textheight = 0.8,
   }) =>
       Container(
-        width: double.infinity,
+        width: WIDTH,
         height: 50.h,
         child: TextFormField(
           textAlign: TextAlign.start,
@@ -541,7 +543,7 @@ import '../../helpers/colors.dart';
                       ))
                   : Text(''),
               filled: true,
-              fillColor: Colors.grey.shade200,
+              fillColor: COLOR,
               hintText: HINT,
               contentPadding: EdgeInsets.all(15),
               hintStyle: TextStyle(
@@ -550,7 +552,7 @@ import '../../helpers/colors.dart';
                 height: textheight.h,
               ),
               prefixIconColor: Colors.grey,
-              prefixIcon: Icon(PREICON),
+              prefixIcon: PREICON,
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(14.r),
                   borderSide: BorderSide(color: Colors.transparent)),
@@ -610,4 +612,27 @@ import '../../helpers/colors.dart';
         ),
       );
 
-
+showDataAlert({
+  context,
+  Widget? WIDGETcontent,
+  Widget? WIDGETtitle,
+}) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                20.0,
+              ),
+            ),
+          ),
+          contentPadding: EdgeInsets.only(
+            top: 10.0,
+          ),
+          title:WIDGETtitle,
+          content: WIDGETcontent
+        );
+      });
+}

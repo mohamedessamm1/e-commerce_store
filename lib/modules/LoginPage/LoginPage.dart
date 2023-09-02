@@ -62,10 +62,11 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
                         MyTextFormField(
+                          COLOR: Colors.grey.shade200,
                             context: context,
                             CONTROLLER: emailcontrol,
                             HINT: '########@gmail.com',
-                            PREICON: Icons.email),
+                            PREICON:Icon(Icons.email) ),
                         SizedBox(
                           height: 16.h,
                         ),
@@ -81,6 +82,7 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
                         MyTextFormField(
+                          COLOR: Colors.grey.shade200,
                           textheight: 1.5,
                           suffixTab: () {
                             AppCubit.get(context).ChangePassVisible();
@@ -89,7 +91,7 @@ class LoginPage extends StatelessWidget {
                           context: context,
                           CONTROLLER: passwordcontrol,
                           HINT: '*************',
-                          PREICON: Icons.lock,
+                          PREICON: Icon(Icons.lock) ,
                         ),
                         Row(
                           children: [

@@ -63,11 +63,12 @@ class SignUpPage extends StatelessWidget {
                           ],
                         ),
                         MyTextFormField(
+                          COLOR: Colors.grey.shade200,
                           pass: false,
                             context: context,
                             CONTROLLER: namecontorl,
                             HINT: 'xxxxxxxx',
-                            PREICON: Icons.email),
+                            PREICON: Icon(Icons.person)),
                         Row(
                           children: [
                             Text(
@@ -80,11 +81,12 @@ class SignUpPage extends StatelessWidget {
                           ],
                         ),
                         MyTextFormField(
+                          COLOR: Colors.grey.shade200,
                           pass: false,
                             context: context,
                             CONTROLLER: emailcontrol,
                             HINT: '########@gmail.com',
-                            PREICON: Icons.email),
+                            PREICON: Icon(Icons.email)),
                         SizedBox(
                           height: 16.h,
                         ),
@@ -100,6 +102,7 @@ class SignUpPage extends StatelessWidget {
                           ],
                         ),
                         MyTextFormField(
+                          COLOR: Colors.grey.shade200,
                           suffixTab: () {
                             AppCubit.get(context).ChangePassVisible();
                           },
@@ -107,7 +110,7 @@ class SignUpPage extends StatelessWidget {
                           context: context,
                           CONTROLLER: passwordcontrol,
                           HINT: '*************',
-                          PREICON: Icons.lock,
+                          PREICON:Icon(Icons.lock) ,
                         ),
                         Row(
                           children: [

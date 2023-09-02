@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:location/location.dart';
 import 'package:store/modules/Categorys/States.dart';
 import 'package:store/modules/OrderPage/States.dart';
 
@@ -14,5 +15,11 @@ class OrderCubit extends Cubit<OrderState> {
     print(value);
     emit(ChangeOrderButtonState());
   }
+ bool SwitchButton=false;
+  ChangeSwitchButton(value){
+    SwitchButton=value;
+    emit(ChangeSwitchButtonState());
+  }
+
 
 }

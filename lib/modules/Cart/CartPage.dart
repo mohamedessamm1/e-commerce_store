@@ -52,7 +52,13 @@ class CartPage extends StatelessWidget {
                 ),
                 Padding(
                   padding:  EdgeInsets.only(top: 670.h,left: 50.w,right: 50.w),
-                  child: MainButton(TEXT: 'Make Order',COLOR:Colors.green,FUNCTION: (){
+                  child: MainButton(TEXT: 'Make Order',COLOR:Colors.green,FUNCTION: ()async{
+                    await CartCubit.get(context)
+                        .LocationPermission();
+                    await CartCubit.get(context)
+                        .getLocation();
+                    await CartCubit.get(context)
+                        .getmyaddress();
                     Navigator.push(
                       context,
                       PageRouteBuilder(

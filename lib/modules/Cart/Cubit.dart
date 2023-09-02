@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:location/location.dart';
 import 'package:store/modules/Cart/States.dart';
 import 'package:store/modules/HomePage/HomeCubit/Cubit.dart';
+import 'package:geocoding/geocoding.dart' as geo;
 
 import '../../share/Cache_Helper/CacheHelper.dart';
 import '../../share/constants/constants.dart';
@@ -78,4 +80,51 @@ class CartCubit extends Cubit<CartState> {
         snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
     print(map);
   }
+
+  Location location = new Location();
+  bool? _serviceEnabled;
+  PermissionStatus? _permissionGranted;
+  LocationData? _locationData;
+
+  LocationPermission() async {
+    emit(GetLocationloadingCart());
+
+    _serviceEnabled = await location.serviceEnabled();
+    if (!_serviceEnabled!) {
+      _serviceEnabled = await location.requestService();
+      if (!_serviceEnabled!) {
+        return;
+      }
+    }
+
+    _permissionGranted = await location.hasPermission();
+    if (_permissionGranted == PermissionStatus.denied) {
+      _permissionGranted = await location.requestPermission();
+      if (_permissionGranted != PermissionStatus.granted) {
+        return;
+      }
+    }
+
+    _locationData = await location.getLocation();
+  }
+
+  double? lat;
+  double? long;
+
+  getLocation() async {
+    emit(GetLocationloadingCart());
+
+    lat = await _locationData?.latitude;
+    long = await _locationData?.longitude;
+  }
+
+  List<geo.Placemark>? placemarks;
+
+  getmyaddress() async {
+    emit(GetLocationloadingCart());
+    placemarks = await geo.placemarkFromCoordinates(lat!, long!);
+
+    emit(GetLocationCart());
+  }
+
 }

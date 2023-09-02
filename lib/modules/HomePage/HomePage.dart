@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                         BarName(
                             title: 'Home',
                             IconColor: AppColors.ButtonColor,
-                            MyPreIcon: Icon(Icons.list,color: AppColors.ButtonColor,),
+                            MyPreIcon: const Icon(Icons.list,color: AppColors.ButtonColor,),
                             fun: () async {
                              await CartCubit.get(context).makeOrder();
                             },
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                                 fontSize: 18.sp,
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Container(
                               height: 40.h,
                               width: 40.w,
@@ -87,7 +87,7 @@ class HomePage extends StatelessWidget {
                             decoration: InputDecoration(
                                 filled: true,
                                 fillColor: Colors.white,
-                                prefixIcon: Icon(
+                                prefixIcon: const Icon(
                                   Icons.search,
                                 ),
                                 hintText: 'Search Here',
@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius:
                                     BorderRadius.circular(14.r),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                         color: Colors.transparent)),
                                 errorBorder: OutlineInputBorder(
                                     borderRadius:
@@ -105,12 +105,12 @@ class HomePage extends StatelessWidget {
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius:
                                     BorderRadius.circular(14.r),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                         color: Colors.transparent)),
                                 border: OutlineInputBorder(
                                     borderRadius:
                                     BorderRadius.circular(14.r),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                         color: Colors.transparent))),
                           ),
                         ),

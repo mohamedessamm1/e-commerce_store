@@ -27,7 +27,7 @@ class CategoryPage extends StatelessWidget {
                     height: 20.h,
                   ),
                   BarName(
-                      MyPreIcon: Icon(Icons.arrow_back_ios_rounded),
+                      MyPreIcon: const Icon(Icons.arrow_back_ios_rounded),
                       fun: () {
                         AppCubit.get(context).changebottomnav(0);
                       },
@@ -35,7 +35,7 @@ class CategoryPage extends StatelessWidget {
                   SizedBox(
                     height: 20.h,
                   ),
-                  Container(
+                  SizedBox(
                     height: 170.h,
                     width: double.infinity,
                     child: CarouselSlider(
@@ -59,37 +59,35 @@ class CategoryPage extends StatelessWidget {
                   SizedBox(
                     height: 25.h,
                   ),
-                  Container(
-                    child: GridView.count(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 15.w,
-                        mainAxisSpacing: 20.h,
-                        children: [
-                          ItemCategory(
-                              'https://th.bing.com/th/id/R.d245186066d08c7ae8039dae68eb12f4?rik=SvEjqBFvvwP7SA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f1%2fElectronic-Download-PNG.png&ehk=ZNqyw4YHCnnvBjcuFC4fi6ZE1znIblzXqaIwc7vWvHI%3d&risl=&pid=ImgRaw&r=0',
-                              'Electronics'),
-                          ItemCategory(
-                              'https://th.bing.com/th/id/R.67ae33bc74d82c394c58f5e5f90eca83?rik=OumNmapXhjzfyg&pid=ImgRaw&r=0',
-                              'Clothes'),
-                          ItemCategory(
-                              'https://th.bing.com/th/id/R.2d731fd06e34034284c1389640303c27?rik=p8JSYKqXHWqp3w&pid=ImgRaw&r=0',
-                              'Food'),
-                          ItemCategory(
-                              'https://i2.wp.com/apprendreamangersainement.com/wp-content/uploads/2017/10/banana.png?fit=640%2C537',
-                              'Toys'),
-                          ItemCategory(
-                              'https://th.bing.com/th/id/R.44b46b61e1479f7e643a85fbc070cefc?rik=N6b1LmsDLYr5YQ&pid=ImgRaw&r=0',
-                              'Beauty'),
-                          ItemCategory(
-                              'https://th.bing.com/th/id/R.a961ed692e870fa53331d70ca2427abd?rik=XxmHcGPcbiJqiA&pid=ImgRaw&r=0',
-                              'Suits'),
-                          ItemCategory(
-                              'https://th.bing.com/th/id/R.e7cbc8e7fd5e55bd43292b0c21b4336d?rik=V9qJG54Mzkm5Iw&riu=http%3a%2f%2fmiam-images.m.i.pic.centerblog.net%2fo%2fc95be4ec.png&ehk=0zzL7NCedk30TRgesL3w1C64kZp8OMO2i7a4mFpazjE%3d&risl=&pid=ImgRaw&r=0',
-                              'Kitchen'),
-                        ]),
-                  ),
+                  GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 15.w,
+                      mainAxisSpacing: 20.h,
+                      children: [
+                        ItemCategory(
+                            'https://th.bing.com/th/id/R.d245186066d08c7ae8039dae68eb12f4?rik=SvEjqBFvvwP7SA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f1%2fElectronic-Download-PNG.png&ehk=ZNqyw4YHCnnvBjcuFC4fi6ZE1znIblzXqaIwc7vWvHI%3d&risl=&pid=ImgRaw&r=0',
+                            'Electronics'),
+                        ItemCategory(
+                            'https://th.bing.com/th/id/R.67ae33bc74d82c394c58f5e5f90eca83?rik=OumNmapXhjzfyg&pid=ImgRaw&r=0',
+                            'Clothes'),
+                        ItemCategory(
+                            'https://th.bing.com/th/id/R.2d731fd06e34034284c1389640303c27?rik=p8JSYKqXHWqp3w&pid=ImgRaw&r=0',
+                            'Food'),
+                        ItemCategory(
+                            'https://i2.wp.com/apprendreamangersainement.com/wp-content/uploads/2017/10/banana.png?fit=640%2C537',
+                            'Toys'),
+                        ItemCategory(
+                            'https://th.bing.com/th/id/R.44b46b61e1479f7e643a85fbc070cefc?rik=N6b1LmsDLYr5YQ&pid=ImgRaw&r=0',
+                            'Beauty'),
+                        ItemCategory(
+                            'https://th.bing.com/th/id/R.a961ed692e870fa53331d70ca2427abd?rik=XxmHcGPcbiJqiA&pid=ImgRaw&r=0',
+                            'Suits'),
+                        ItemCategory(
+                            'https://th.bing.com/th/id/R.e7cbc8e7fd5e55bd43292b0c21b4336d?rik=V9qJG54Mzkm5Iw&riu=http%3a%2f%2fmiam-images.m.i.pic.centerblog.net%2fo%2fc95be4ec.png&ehk=0zzL7NCedk30TRgesL3w1C64kZp8OMO2i7a4mFpazjE%3d&risl=&pid=ImgRaw&r=0',
+                            'Kitchen'),
+                      ]),
                 ],
               ),
             ),

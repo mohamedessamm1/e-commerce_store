@@ -1,4 +1,3 @@
-
 class AddProducts {
   String? category;
   String? describtion;
@@ -18,9 +17,6 @@ class AddProducts {
     this.name,
     this.totalrate,
     this.incart,
-
-
-
   });
 
   AddProducts.fromjson(Map<String, dynamic> json) {
@@ -33,13 +29,11 @@ class AddProducts {
     totalrate = json?['totalrate'];
     name = json?['name'];
     incart = json?['incart'];
-
   }
 
   Map<String, dynamic> tojson() {
     return {
       'describtion': describtion,
-
       'category': category,
       'price': price,
       'rate': rate,
@@ -47,8 +41,6 @@ class AddProducts {
       'totalrate': totalrate,
       'name': name,
       'incart': incart,
-
-
     };
   }
 }

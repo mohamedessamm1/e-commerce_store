@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geocoding/geocoding.dart' as geo;
 import 'package:location/location.dart';
+import 'package:paymob_payment/paymob_payment.dart';
 import 'package:store/modules/Cart/States.dart';
 import 'package:store/modules/HomePage/HomeCubit/Cubit.dart';
-import 'package:geocoding/geocoding.dart' as geo;
 
 import '../../share/Cache_Helper/CacheHelper.dart';
-import '../../share/constants/constants.dart';
 
 class CartCubit extends Cubit<CartState> {
   CartCubit() : super(CartPageInitialState());
@@ -15,7 +15,7 @@ class CartCubit extends Cubit<CartState> {
   List getcartlist = [];
   List cartList = [];
 
-  Future<void>? getCart(index, context) {
+  Future<void>? getCart(index, context) async {
     FirebaseFirestore.instance
         .collection('cart')
         .doc(CacheHelper.getdata(key: 'email'))
@@ -24,7 +24,7 @@ class CartCubit extends Cubit<CartState> {
         .then((value) {
       getcartlist = value.docs.map((element) => element.data()).toList();
       cartList.add(getcartlist[0]);
-      print(cartList.toString());
+      print(cartList);
       Favourite?.addAll({
         HomeCubut.get(context).productsId[index]: true,
       });
@@ -38,8 +38,8 @@ class CartCubit extends Cubit<CartState> {
   Map<String, bool>? Favourite = {};
 
   int deletelenght = 0;
-  deleteCart() async{
 
+  deleteCart() async {
     await FirebaseFirestore.instance
         .collection('cart')
         .doc(CacheHelper.getdata(key: 'email'))
@@ -52,6 +52,7 @@ class CartCubit extends Cubit<CartState> {
   }
 
   int orderlenght = 0;
+
   makeOrder() {
     emit(MakeOrderLoadingState());
     for (orderlenght = 0; orderlenght <= cartList.length - 1; orderlenght++) {
@@ -127,4 +128,25 @@ class CartCubit extends Cubit<CartState> {
     emit(GetLocationCart());
   }
 
+  bool PaymentResponse = false;
+
+  PaymentSuccess({context}) async {
+    await PaymobPayment.instance
+        .pay(
+      context: context,
+      currency: "EGP",
+      amountInCents: '${CartCubit.get(context).myPrice * 100}', // 200 EGP
+      onPayment: (response) {
+        print('/////////////////////////////////////////////////////////////');
+        print(response.success);
+        print(response.message);
+        PaymentResponse = response.success;
+      }, // Optional
+    )
+        .then((value) {
+      emit(PaymentSuccessState());
+    });
+  }
+
+  double myPrice = 0;
 }

@@ -48,7 +48,11 @@ dependencies:
   ionicons: ^0.2.2
   floating_bottom_navigation_bar: ^1.5.2
   lottie: ^2.6.0
+  paymob_payment: ^0.0.1+1
 
+  ######################################
+  google_maps_flutter: ^2.5.0
+  ##############################################
   #firebase----------------------------------
   firebase_core: ^2.15.0
   firebase_auth: ^4.7.2

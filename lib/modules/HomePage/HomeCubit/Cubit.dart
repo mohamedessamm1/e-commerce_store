@@ -1,16 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
-import 'package:store/modules/Cart/CartPage.dart';
 import 'package:store/modules/Cart/Cubit.dart';
-import 'package:store/modules/Settings/Settings.dart';
-import 'package:store/network/Dio/App_Dio.dart';
 import 'package:store/share/Cache_Helper/CacheHelper.dart';
-import 'package:store/share/Cubit/Cubit.dart';
 
-import '../../../share/constants/constants.dart';
 import 'States.dart';
 
 class HomeCubut extends Cubit<HomeStates> {
@@ -63,6 +55,7 @@ class HomeCubut extends Cubit<HomeStates> {
   }
 
   int z = 0;
+
   resetStatusProduct() {
     for (z; z <= products.length; z++) {
       getProductsStatus?.update(z, (value) => false);

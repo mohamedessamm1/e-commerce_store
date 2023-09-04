@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:store/helpers/colors.dart';
-import 'package:store/layout_home/home_layout.dart';
 import 'package:store/modules/SignUpPage/Cubit.dart';
 import 'package:store/modules/SignUpPage/SignUpPage.dart';
 import 'package:store/share/Cubit/Cubit.dart';
+
 import '../../share/componant/componant.dart';
 import 'Cubit.dart';
 import 'States.dart';
@@ -62,11 +61,11 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
                         MyTextFormField(
-                          COLOR: Colors.grey.shade200,
+                            COLOR: Colors.grey.shade200,
                             context: context,
                             CONTROLLER: emailcontrol,
                             HINT: '########@gmail.com',
-                            PREICON:Icon(Icons.email) ),
+                            PREICON: Icon(Icons.email)),
                         SizedBox(
                           height: 16.h,
                         ),
@@ -91,7 +90,7 @@ class LoginPage extends StatelessWidget {
                           context: context,
                           CONTROLLER: passwordcontrol,
                           HINT: '*************',
-                          PREICON: Icon(Icons.lock) ,
+                          PREICON: Icon(Icons.lock),
                         ),
                         Row(
                           children: [

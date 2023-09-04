@@ -1,14 +1,8 @@
-import 'package:cherry_toast/resources/arrays.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store/helpers/colors.dart';
 import 'package:store/modules/Settings/Cubit.dart';
-import 'package:store/share/Cubit/Cubit.dart';
-import 'package:store/share/Cubit/States.dart';
-import 'package:store/share/componant/componant.dart';
-import 'package:store/share/constants/constants.dart';
 
 import '../MyWallet/MyWallet.dart';
 import 'States.dart';
@@ -70,7 +64,6 @@ class SettingsPage extends StatelessWidget {
                           width: 340.w,
                           height: 450.h,
                           decoration: BoxDecoration(
-
                               borderRadius: BorderRadius.circular(20.r),
                               color: Colors.white),
                           child: Column(
@@ -268,7 +261,6 @@ class SettingsPage extends StatelessWidget {
                               SizedBox(
                                 height: 50.w,
                               ),
-
                               const Text('Contact with us'),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,

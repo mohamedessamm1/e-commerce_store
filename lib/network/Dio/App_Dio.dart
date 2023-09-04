@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
 
-import '../../share/constants/constants.dart';
-
 /////////////App dio
 class AppDioHelper {
   static late Dio dio;

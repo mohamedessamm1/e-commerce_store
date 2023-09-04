@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:store/modules/Categorys/Cubit.dart';
 import 'package:store/modules/Categorys/States.dart';
 import 'package:store/share/Cubit/Cubit.dart';

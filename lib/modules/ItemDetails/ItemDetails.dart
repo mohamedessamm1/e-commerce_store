@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rate/rate.dart';
-import 'package:store/helpers/colors.dart';
 import 'package:store/modules/HomePage/HomeCubit/Cubit.dart';
 import 'package:store/modules/HomePage/HomeCubit/States.dart';
 import 'package:store/share/componant/componant.dart';
@@ -82,12 +81,11 @@ class ItemDetails extends StatelessWidget {
                                 color: Colors.orangeAccent,
                                 allowHalf: true,
                                 allowClear: true,
-                                initialValue: rate! ,
+                                initialValue: rate!,
                                 readOnly: true,
                                 onChange: (value) {}),
                           ],
                         ),
-
                       ],
                     ),
                     SizedBox(
@@ -294,10 +292,13 @@ class ItemDetails extends StatelessWidget {
                       height: 50.h,
                     ),
                     BarName(
-                      title: 'Details',
+                        title: 'Details',
                         MyIcon: Icons.shopping_cart,
                         IconColor: Colors.blue.shade800,
-                        MyPreIcon: Icon(Icons.arrow_back_ios_outlined,color: Colors.blue.shade800,),
+                        MyPreIcon: Icon(
+                          Icons.arrow_back_ios_outlined,
+                          color: Colors.blue.shade800,
+                        ),
                         fun: () {
                           Navigator.pop(context);
                         }),
@@ -311,7 +312,6 @@ class ItemDetails extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-
                     Row(
                       children: [
                         Text('  ${category.toString()}'),

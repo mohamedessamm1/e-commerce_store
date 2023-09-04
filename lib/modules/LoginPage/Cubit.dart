@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:store/modules/Cart/States.dart';
 import 'package:store/modules/LoginPage/States.dart';
 
 import '../../layout_home/home_layout.dart';
@@ -21,7 +19,7 @@ class LoginCubit extends Cubit<LoginState> {
     final credential = await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: emailAddress, password: password)
         .then((value) {
-      CacheHelper.savedata(key: 'email', value:  emailAddress);
+      CacheHelper.savedata(key: 'email', value: emailAddress);
       Fluttertoast.showToast(
           msg: "Login Successfully!",
           toastLength: Toast.LENGTH_SHORT,
@@ -38,7 +36,4 @@ class LoginCubit extends Cubit<LoginState> {
       print(value.toString());
     });
   }
-
-
-
 }

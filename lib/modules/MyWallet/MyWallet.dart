@@ -1,12 +1,6 @@
-import 'package:cherry_toast/resources/arrays.dart';
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/helpers/colors.dart';
-import 'package:store/share/Cubit/Cubit.dart';
-import 'package:store/share/Cubit/States.dart';
-import 'package:store/share/componant/componant.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class MyWallet extends StatelessWidget {
@@ -103,7 +97,7 @@ class MyWallet extends StatelessWidget {
                     TooltipBehavior(enable: true, color: AppColors.Primary),
                 series: <ChartSeries<_SalesData, String>>[
                   SplineAreaSeries<_SalesData, String>(
-                      gradient:  LinearGradient(
+                      gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [Colors.blue.shade800, Colors.white]),

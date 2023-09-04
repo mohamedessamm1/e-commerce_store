@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:store/helpers/colors.dart';
-import 'package:store/layout_home/home_layout.dart';
 import 'package:store/modules/LoginPage/LoginPage.dart';
-import 'package:store/modules/SignUpPage/SignUpPage.dart';
 import 'package:store/share/constants/constants.dart';
+
 import '../../share/Cubit/Cubit.dart';
 import '../../share/componant/componant.dart';
 import 'Cubit.dart';
@@ -63,8 +61,8 @@ class SignUpPage extends StatelessWidget {
                           ],
                         ),
                         MyTextFormField(
-                          COLOR: Colors.grey.shade200,
-                          pass: false,
+                            COLOR: Colors.grey.shade200,
+                            pass: false,
                             context: context,
                             CONTROLLER: namecontorl,
                             HINT: 'xxxxxxxx',
@@ -81,8 +79,8 @@ class SignUpPage extends StatelessWidget {
                           ],
                         ),
                         MyTextFormField(
-                          COLOR: Colors.grey.shade200,
-                          pass: false,
+                            COLOR: Colors.grey.shade200,
+                            pass: false,
                             context: context,
                             CONTROLLER: emailcontrol,
                             HINT: '########@gmail.com',
@@ -110,7 +108,7 @@ class SignUpPage extends StatelessWidget {
                           context: context,
                           CONTROLLER: passwordcontrol,
                           HINT: '*************',
-                          PREICON:Icon(Icons.lock) ,
+                          PREICON: Icon(Icons.lock),
                         ),
                         Row(
                           children: [
@@ -122,14 +120,13 @@ class SignUpPage extends StatelessWidget {
                         ),
                         MainButton(
                             COLOR: Colors.blue.shade700,
-                            FUNCTION: () async{
-                            await  SignUpCubit.get(context).SignUpMethod(
+                            FUNCTION: () async {
+                              await SignUpCubit.get(context).SignUpMethod(
                                 emailAddress: emailcontrol.text,
                                 password: passwordcontrol.text,
-                              context: context,
-
+                                context: context,
                               );
-                              MyName =namecontorl.text;
+                              MyName = namecontorl.text;
                             },
                             TEXT: 'Login'),
                         SizedBox(
@@ -153,7 +150,8 @@ class SignUpPage extends StatelessWidget {
                             TEXT_COLOR: Colors.grey.shade800,
                             ICON: Ionicons.logo_google,
                             FUNCTION: () async {
-                            await  SignUpCubit.get(context).signInWithGoogle(context: context);
+                              await SignUpCubit.get(context)
+                                  .signInWithGoogle(context: context);
                             },
                             TEXT: 'Continue With Google'),
                         Row(

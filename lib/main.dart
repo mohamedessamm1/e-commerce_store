@@ -1,9 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:paymob_payment/paymob_payment.dart';
 import 'package:store/modules/Cart/Cubit.dart';
 import 'package:store/modules/Categorys/Cubit.dart';
 import 'package:store/modules/HomePage/HomeCubit/Cubit.dart';
@@ -18,21 +17,22 @@ import 'package:store/share/Cubit/Cubit.dart';
 import 'package:store/share/Cubit/States.dart';
 
 import 'layout_home/home_layout.dart';
-import 'modules/SignUpPage/SignUpPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   AppDioHelper.init();
   CacheHelper.initcache();
-  runApp( MyApp());
+  PaymobPayment.instance.initialize(
+    apiKey:
+        "ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2T0RneE1qUTRMQ0p1WVcxbElqb2lhVzVwZEdsaGJDSjkuRTlGSTBwbkY3RDV0QThaWE5CeXVJNHM3alN1VjNqakxfT1dYNjdyWDFGX1pXM2dMWGJjMUVQZC1Eek9WaW5RblVkQXlucGN2S2xlRjNMSC0tLXNmMHc=",
+    integrationID: 4111769,
+    iFrameID: 782244,
+  );
+  runApp(MyApp());
 }
 
-
-
-
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -73,7 +73,9 @@ class MyApp extends StatelessWidget {
                 return MaterialApp(
                   theme: ThemeData(fontFamily: 'ubuntu'),
                   debugShowCheckedModeBanner: false,
-                  home:  CacheHelper.getdata(key: 'email')!=null?   HomeLayout():LoginPage(),
+                  home: CacheHelper.getdata(key: 'email') != null
+                      ? HomeLayout()
+                      : LoginPage(),
                 );
               },
             ));

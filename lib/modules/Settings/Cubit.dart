@@ -1,11 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:location/location.dart';
-import 'package:store/modules/Cart/States.dart';
-import 'package:store/modules/Settings/States.dart';
-import 'package:store/share/Cubit/Cubit.dart';
-import 'package:store/share/Cubit/States.dart';
 import 'package:geocoding/geocoding.dart' as geo;
 import 'package:location/location.dart';
+import 'package:store/modules/Settings/States.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsCubit extends Cubit<SettingsStates> {
